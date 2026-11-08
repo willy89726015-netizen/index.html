@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>測試</title>
+</head>
+<body>
+<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" id="link">點我有事發生</a>
+<h1>我的清單</h1>
+<form id="to_do">
+ <input id="task" placeholder="請輸入代辦事項">
+<button type="submit">新增</button>
+</form>
+<p id="message" role="status"></p>
+<ul id="list">
+  <li>看動漫</li>
+  <li>寫作業</li>
+  <li>補習</li> 
+
+</ul>
+  <script>
+  const message = document.getElementById("message");
+  const link =document.getElementById("link")
+  const input = document.getElementById("task");
+ const list = document.getElementById("list");
+ const form = document.getElementById("to_do");
+
+
+ form.addEventListener("submit", function(event) {
+  event.preventDefault(); 
+ 
+  const text = input.value.trim();
+  if (text === "") {
+    message.textContent = "請輸入待辦事項。";
+    return;
+  };
+  const item = document.createElement("li");
+  item.textContent = text;
+  list.appendChild(item);
+  message.textContent = "";
+  
+});
+link.addEventListener("click",(e)=>{
+    e.preventDefault(); // 1. 先阻止立刻跳轉
+    alert("你好，歡迎回來");
+     window.location.href = "https://youtube.com";
+});
+</script> 
+</body>
+<style>input {
+  padding: 10px;
+  border: 1px solid #d8cce9;
+  border-radius: 6px;
+}
+
+button {
+  background: #7760cf;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+}
+
+li {
+  color: #7760cf;
+  padding: 8px;
+}
+ 
+</style>
+</html>
